@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap');
+        body{
+            background: url("https://png.pngtree.com/thumb_back/fh260/background/20200313/pngtree-office-supplies-memo-paper-post-it-color-lead-highlighter-clip-scissors-image_331675.jpg") ;
+            background-position: absolute;
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: 'Roboto', sans-serif;
+
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: url("https://c4.wallpaperflare.com/wallpaper/811/164/1020/glossy-pink-background-wallpaper-preview.jpg");
+            border-radius: 19px;
+            margin:0 528px;
+        }
+        #heading{
+            text-decoration: dashed;
+        }
+
+        .row {
+            margin: 5px 0;
+
+        }
+
+        .btn {
+            width: 61px;
+            padding: 14px 0;
+            cursor: pointer;
+            background : green;
+        }
+
+        .txtbox {
+            margin-top: 13px;
+            width: 252px;
+            padding: 10px 0;
+            font-size: 21px;
+            border: solid black 2px;
+            border-radius: 7px;
+        }
+        .oper{
+            background: orangered;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1 style="text-align: center;" id = "heading">SIMPLE CALCULATOR!</h1>
+    <h1 style="text-align: center;" id = "heading">BY TAHA</h1>
+    <div class="container">
+        <div class="inp">
+            <input type="text" class="txtbox">
+        </div>
+        <div class="row">
+            <button class="btn oper">AC</button>
+            <button class="btn oper">%</button>
+            <button class="btn">^1/2</button>
+            <button class="btn">^2</button>
+
+            <div class="row">
+                <button class="btn">1</button>
+                <button class="btn">2</button>
+                <button class="btn">3</button>
+                <button class="btn oper">+</button>
+            </div>
+            <div class="row">
+                <button class="btn">4</button>
+                <button class="btn">5</button>
+                <button class="btn">6</button>
+                <button class="btn oper">-</button>
+            </div>
+            <div class="row">
+                <button class="btn">7</button>
+                <button class="btn">8</button>
+                <button class="btn">9</button>
+                <button class="btn oper">*</button>
+            </div>
+            <div class="row">
+                <button class="btn"><b>.</b></button>
+                <button class="btn">0</button>
+                <button class="btn oper">=</button>
+                <button class="btn oper">/</button>
+            </div>
+        </div>
+<script>
+    let str = "";
+let buttons = document.querySelectorAll(".btn");
+Array.from(buttons).forEach((element) => {
+    element.addEventListener("click", (e) => {
+        if (e.target.innerHTML == "=") {
+            str = eval(str);
+            document.getElementsByClassName("txtbox")[0].value = str;
+
+        }
+        else if (e.target.innerHTML == "AC") {
+            str = "";
+            document.getElementsByClassName("txtbox")[0].value = str;
+        }
+        else if(e.target.innerHTML == "^1/2"){
+            str = Math.sqrt(str);
+            document.getElementsByClassName("txtbox")[0].value = str;
+        }
+        else if(e.target.innerHTML == "^2"){
+            str = Math.pow(str,2);
+            document.getElementsByClassName("txtbox")[0].value = str;
+        }
+        else {
+            str = str + e.target.innerHTML;
+            document.getElementsByClassName("txtbox")[0].value = str;
+        }
+    })
+})
+            
+</script>
+
+</body>
+
+</html>
